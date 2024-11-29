@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 201, 49%, 7%, 1;
+    --foreground: 0, 0%, 100%, 1;
+    --tozka: 179, 52%, 59%, 1;
+    --blue-sea: 206, 68%, 56%, 1;
+    --radius: 0.5rem;
+    --border: 0, 0%, 100%, 0.22;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .bg-gradient-custom {
+    background: linear-gradient(
+      45deg,
+      hsla(40, 41%, 41%, 1),
+      hsla(55, 76%, 80%, 1),
+      hsla(66, 68%, 94%, 1),
+      hsla(33, 100%, 87%, 1),
+      hsla(42, 48%, 68%, 1),
+      hsla(66, 68%, 94%, 1),
+      hsla(42, 48%, 68%, 1)
+    );
+  }
+  .bg-gradient-blue-green {
+    background: linear-gradient(
+      45deg,
+      hsla(179, 52%, 59%, 1),
+      hsla(206, 68%, 56%, 1)
+    );
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
 }
